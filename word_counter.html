@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <link rel="stylesheet" href="word_counter.css">
+</head>
+<body>
+    <div class="container">
+    <p>Word Counter</p>
+    <div class="textinp">
+        <textarea name="inp" id="inp" placeholder="Enter or paste your text here" oninput="wordCount()"></textarea>
+    </div>
+    <div class="buttons">
+        <div class="result">
+            <h3>Word Count: <span id="res">0</span></h3>
+            <input type="reset" value="Reset" id="rst" onclick="reset()">
+        </div>
+    </div>
+    </div>
+    <script>
+        function wordCount(){
+            const text=document.getElementById("inp").value
+            let arr=text.trim().split(/\s+/)
+            arr.filter(word=>word.length>0)
+            document.getElementById("res").innerHTML=arr.length
+        }
+        function reset(){
+            document.getElementById("inp").value="";
+            document.getElementById("res").innerHTML="0"
+        }
+    </script>
+</body>
+</html>
